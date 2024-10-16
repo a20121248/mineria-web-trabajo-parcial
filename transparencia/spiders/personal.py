@@ -34,7 +34,7 @@ class PersonalSpider(scrapy.Spider):
                     'codmes': codmes,
                 }
 
-                self.logger.info(f"Procesando Personal para {entidad['entidad_nombre']} (entidad_id={entidad['entidad_id']}) en periodo {codmes}'.")
+                self.logger.info(f"Procesando {self.name} para {entidad['entidad_nombre']} (entidad_id={entidad['entidad_id']}) en periodo {codmes}'.")
                 file_url = f"{self.personal_URL}id_entidad={entidad['entidad_id']}&in_anno_consulta={anho}&ch_mes_consulta={mes}"
                 yield scrapy.Request(url=file_url, meta=meta, callback=self.parse_personal)
         
